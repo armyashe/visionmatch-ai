@@ -1,13 +1,52 @@
-
 # VisionMatch AI v0.1
 
 Hệ thống tìm kiếm ảnh sản phẩm thời trang tương tự (Image Retrieval) sử dụng **PyTorch** và **CLIP (ViT-B/32)**.
 
-## 📂 Cấu trúc thư mục dự án
+## 🚀 Cài đặt nhanh
 
-Dự án được tổ chức theo chuẩn mô-đun, tách biệt rõ ràng giữa phần xử lý mô hình (ML pipeline), script tự động hóa, giao diện và dữ liệu:
+### 1. Clone repository
 
-```text
+```
+git clone https://github.com/armyashe/visionmatch-ai.git
+cd visionmatch-ai
+```
+
+### 2. Create virtual environment
+
+```
+python -m venv .venv
+.venv\Scripts\Activate.ps1
+```
+
+### 3. Install PyTorch
+
+**NVIDIA GPU (CUDA 12.6):**
+
+```
+python -m pip install torch2.6.0 torchvision•0.21.0 --index-url https://download.pytorch.org/whl/cu126
+```
+
+**CPU:**
+
+```
+python -m pip install torch2.6.0 torchvision•0.21.0 --index-url https://download.pytorch.org/whl/cpu
+```
+
+### 4. Install dependencies
+
+```
+python -m pip install -r requirements.txt
+```
+
+### 5. Verify installation
+
+```
+python -c "import torch; print('CUDA:', torch.cuda.is_available())"
+```
+
+# 📂 Cấu trúc thư mục dự án
+
+```
 visionmatch-ai/
 ├── app.py                    # Giao diện Demo trực tuyến sử dụng Gradio (cho phép tải ảnh lên để tìm kiếm)
 ├── requirements.txt          # Danh sách các thư viện Python cần thiết (torch, transformers, gradio, numpy, pytest, v.v.)
@@ -36,3 +75,25 @@ visionmatch-ai/
 └── tests/
     └── test_retrieval.py     # Các bài kiểm thử đơn vị (Unit tests) cho thuật toán retrieval
 ```
+
+## ▶️ Usage
+
+Sau khi tải dataset vào data/raw/:
+
+```
+python scripts/prepare_dataset.py
+python scripts/build_index.py
+python app.py
+```
+
+# 🛠️ Tech Stack
+
+**AI/ML:** PyTorch, CLIP, Hugging Face
+
+**Image Retrieval:** Cosine Similarity, NumPy
+
+**Demo UI:** Gradio
+
+## **📌 Status**
+
+**🚧 Under Development – v0.1**
