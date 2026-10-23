@@ -30,6 +30,7 @@ data/processed/*
 !data/processed/.gitkeep
 artifacts/*
 !artifacts/.gitkeep
+data/queries/
 
 # Environment variables
 .env
